@@ -1,0 +1,42 @@
+.venv 
+ignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+.env
+venv/
+env/
+.venv/
+
+# FastAPI uploads & logs
+uploads/
+logs/
+agent_recon.db
+
+# Byte-compiled / cache
+*.log
+*.pid
+
+# PyInstaller
+build/
+dist/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+
+
+# Docker / temp
+*.bak
+*.tmp
+*.tar
+*.gz
