@@ -21,7 +21,10 @@ async def lifespan(app: FastAPI):
 
 app.get("/")
 def read_root():
-    return {"status":"working"}
+    return {"status":"working", "msg":"server running"}
+
+
+
 
 
 
