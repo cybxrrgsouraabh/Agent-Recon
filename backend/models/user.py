@@ -11,4 +11,4 @@ class User(SQLModel, table=True):
     passwordHash: str 
     
     role: str = Field(default="investigator") #'investigator', 'admin'
-    created_at: datetime.datetime = Field(default_factory=lambda: datetime.now(UTC))
+    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
