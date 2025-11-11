@@ -12,7 +12,7 @@ class Report(SQLModel, table=True):
     case_id: Optional[str] = Field(default=None, index=True)
     
     generated_by: Optional[str] = Field(default=None, foreign_key="user.id") 
-    generated_at: datetime.datetime = Field(default_factory=lambda:datetime.now(UTC))
+    generated_at: datetime = Field(default_factory=lambda:datetime.now(UTC))
     
     file_path: str = Field(unique=True)
     file_sha256: str = Field(max_length=64)

@@ -9,10 +9,7 @@ from routes import audit as audit_router
 
 load_dotenv()
 
-app = FastAPI(
-    title="Agent-Recon",
-    version="0.1.0"
-)
+
 
 
 @app.get("/")
@@ -25,11 +22,13 @@ async def lifespan(app: FastAPI):
     init_db()
     print("DB Initialized")
 
-app.include_router(
-    audit_router.router,
-    prefix="/audit",
-    tags=["Audit (list)"]
-)
+
+
+
+
+app.get("/")
+def read_root():
+    return {"status":"working", "msg":"server running"}
 
 
 

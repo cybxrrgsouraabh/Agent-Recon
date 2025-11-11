@@ -8,7 +8,7 @@ import os
 # This allows us to import from `db` and `models`
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from sqlmodel import Session
+from sqlmodel import Session, select
 from db import engine, init_db
 from models.user import User
 
@@ -16,17 +16,20 @@ def create_demo_user():
     print("Initializing database...")
     init_db() # Make sure tables exist
     
+
+    demo_email = "investigator@demo.com"
+    demo_name = "Sourabh"
     with Session(engine) as session:
         # Check if the user already exists
-        user = session.exec(select(User).where(User.email == "investigator@demo.com")).first()
+        user = session.exec(select(User).where(User.email == demo_email)).first()
         
         if user:
-            print("Demo user 'investigator@demo.com' already exists.")
+            print("Demo user {demo_email} already exists.")
         else:
             print("Creating demo user 'investigator@demo.com'...")
             demo_user = User(
-                email="investigator@demo.com",
-                name="Demo Investigator",
+                email=demo_email,
+                name=demo_name,
                 role="investigator"
                 # We don't save a password since login is mocked
             )

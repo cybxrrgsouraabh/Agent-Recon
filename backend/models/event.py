@@ -29,7 +29,7 @@ class Event(SQLModel, table=True):
     
     # Timestamp Details (When did this happen?)
     parsed_timestamp_original: Optional[str] = Field(default=None)
-    timestamp_utc: Optional[datetime.datetime] = Field(default=None, index=True)
+    timestamp_utc: Optional[datetime] = Field(default=None, index=True)
     
     # Parsed Content
     device: Optional[str] = Field(default=None, index=True)

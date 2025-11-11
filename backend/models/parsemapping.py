@@ -13,7 +13,7 @@ class ParseMapping(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
 
     # Many to 1 relationship with evidence
-    evidence_id: Optional[int] = Field(default=None, foreign_key="user.id", table=True)
+    evidence_id: Optional[int] = Field(default=None, foreign_key="user.id")
     evidence_source: List["Evidence"] = Relationship(back_populates="parsemapping")
 
     # A way to identify this rule
@@ -26,5 +26,5 @@ class ParseMapping(SQLModel, table=True):
     
     parser_type: str = Field(default="AI-BASED") # 'AI-BASED', 'RULE-BASED'
     
-    created_at: datetime.datetime = Field(default_factory=lambda:datetime.now(UTC))
+    created_at: datetime = Field(default_factory=lambda:datetime.now(UTC))
     created_by: Optional[str] = Field(default=None)

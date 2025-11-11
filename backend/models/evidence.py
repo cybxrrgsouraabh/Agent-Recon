@@ -17,8 +17,8 @@ class Evidence(SQLModel, table=True):
     sha256: str = Field(max_length=64, unique=True)
     size_bytes: Optional[int] = Field(default=None)
     
-    uploaded_by: Optional[str] = Field(deafult="None", foreign_key="user.id") 
-    uploaded_at: datetime.datetime = Field(default_factory=lambda : datetime.now(UTC))
+    uploaded_by: Optional[str] = Field(default="None", foreign_key="user.id") 
+    uploaded_at: datetime = Field(default_factory=lambda : datetime.now(UTC))
     
     status: str = Field(default="UPLOADED") # UPLOADED|PARSING|PARSED|ERROR
     notes: Any = Field(default=None, sa_column=Column(JSON))
