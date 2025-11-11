@@ -29,6 +29,7 @@ def init_db():
     from models.parsemapping import ParseMapping 
 
     SQLModel.metadata.create_all(engine)
+    print("database tables created")
 
 def get_session():
     

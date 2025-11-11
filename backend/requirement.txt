@@ -1,9 +1,11 @@
-fastapi
+fastapi[standard]
 uvicorn[standard]
 sqlmodel
 python-multipart
 passlib[bcrypt]
-pyjwt
+python-jose[cryptography]
 aiofiles
 cryptography
+python-dotenv
+python-dateutil
 

@@ -17,12 +17,11 @@ class AuditLog(SQLModel, table=True):
     resource_type: Optional[str] = Field(default=None) # e.g., 'evidence', 'report'
     resource_id: Optional[int] = Field(default=None)
     
-    timestamp: datetime.datetime = Field(default_factory=lambda:datetime.now(UTC), index=True)
+    timestamp: datetime = Field(default_factory=lambda:datetime.now(UTC), index=True)
     
     # --- Chain of Custody ---
     payload: str = Field(description="Canonical JSON string of action details")
-    prev_hash: Optional[str] = Field(default=None, max_length=64)
-    curr_hash: str = Field(max_length=64, unique=True)
+
 
 
     
